@@ -5,8 +5,8 @@ categories:
   - first author
   - allosteric enzymes
 
-ref-title: "Domain movements upon activation of phenylalanine hydroxylase characterized by crystallography and chromatography-coupled small-angle X-ray scattering."
-ref-authors: "Meisburger SP, Taylor AB, Khan CA, Zhang S, Fitzpatrick PF, Ando N."
+ref-title: "Domain movements upon activation of phenylalanine hydroxylase characterized by crystallography and chromatography-coupled small-angle X-ray scattering"
+ref-authors: "Meisburger SP, Taylor AB, Khan CA, Zhang S, Fitzpatrick PF, Ando N"
 ref-journal: "JACS"
 ref-volume: "138(20)"
 ref-pages: "6506–16"

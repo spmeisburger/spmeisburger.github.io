@@ -2,8 +2,23 @@
    title: Articles
    layout: default
 ---
-
-{% for article in site.articles %}
-<h1>{{ article.title }}</h1>
-{{ article.content }}
+<h1>Articles</h1>
+<ol>
+{% assign sorted = site.articles | sort: 'date' | reverse %}
+{% for article in sorted %}
+<li>{{ article.ref-authors }}. (<b>{{ article.ref-year }}</b>). {{ article.ref-title }}. <i>{{ article.ref-journal }}</i>
+{{article.ref-volume}}: {{article.ref-pages}}.
+{% if article.ref-doi %}
+DOI:&nbsp;<a href='http://dx.doi.org/{{ article.ref-doi }}'>{{ article.ref-doi }}</a>
+{% endif %}
+{% if article.ref-pmcid %}
+PMCID:&nbsp;<a href='https://www.ncbi.nlm.nih.gov/pubmed/{{ article.ref-pmcid }}'>{{ article.ref-pmcid}}</a>
+{% elsif article.ref-pmid %}
+PMID:&nbsp;<a href='https://www.ncbi.nlm.nih.gov/pubmed/{{ article.ref-pmid }}'>{{ article.ref-pmid}}</a>
+{% endif %}
+{% if article.ref-footnote %}
+<br>{{ article.ref-footnote}}
+{% endif %}
+</li>
 {% endfor %}
+</ol>
