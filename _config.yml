@@ -2,5 +2,4 @@ theme: jekyll-theme-minimal
 title: Steve Meisburger
 show_downloads: false
 collections:
-  - articles:
-       - layout: article
+  - articles
