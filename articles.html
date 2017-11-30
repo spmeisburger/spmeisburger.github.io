@@ -1,0 +1,11 @@
+---
+   title: Articles
+---
+
+{% for article in site.articles %}
+<h1>{{ article.title }}</h1>
+<p>{{ article.ref-authors }}</p>
+<p>{{ article.ref-title }}</p>
+<p>{{ article.ref-journal }}</p>
+<p>{{ article.ref-year }}</p>
+{% endfor %}
