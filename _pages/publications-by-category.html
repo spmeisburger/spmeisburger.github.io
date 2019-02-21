@@ -1,0 +1,21 @@
+---
+layout: archive
+title: "Publications by Category"
+permalink: /publications-by-category/
+author_profile: true
+---
+
+{% include base_path %}
+
+{% include group-by-array collection=site.articles field="categories" %}
+
+{% for category in group_names %}
+  {% assign items = group_items[forloop.index0] %}
+  <h2 id="{{ beamline | slugify }}" class="archive__subtitle">{{ category }}</h2>
+  <ul>
+  {% assign sorted = items | sort: 'date' | reverse %}
+  {% for article in sorted %}
+  <li>{% include reference.html article=article %}</li>
+  {% endfor %}
+  </ul>
+{% endfor %}

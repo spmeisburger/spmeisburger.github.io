@@ -1,0 +1,101 @@
+---
+layout: default
+---
+
+{% include base_path %}
+
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  {% include page__hero.html %}
+{% endif %}
+
+{% if page.url != "/" and site.breadcrumbs %}
+  {% unless paginator %}
+    {% include breadcrumbs.html %}
+  {% endunless %}
+{% endif %}
+
+<div id="main" role="main">
+  {% include sidebar.html %}
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+
+  {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+
+  <div class="page__inner-wrap">
+    {% unless page.header.overlay_color or page.header.overlay_image %}
+      <header>
+        {% if page.ref-title %}<h1 class="page__title" itemprop="headline">{{ page.ref-title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
+
+{% if page.figure %}
+<figure>
+  <div class="archive__item-teaser">
+  <img src="{{ page.figure }}" alt="?">
+</div>
+</figure>
+{% endif %}
+
+      <!---
+      <p><i>{{ page.ref-journal }}</i> {{ page.ref-volume }}: {{ page.ref-pages}} (<b>{{ page.ref-year }}</b>).
+      --->
+      {% if page.date %}
+        <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i></strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
+      {% endif %}
+
+      {% if page.ref-venue %}
+      <p><i>{{ page.ref-venue }}</i></p>
+      {% endif %}
+
+      <p>{{ page.ref-authors | replace: '*','<sup>&dagger;</sup>'}}.
+        {% if page.ref-footnote %}
+        <br><small>{{ page.ref-footnote | replace: '*', '<sup>&dagger;</sup>'}}</small>
+        {% endif %}
+      </p>
+    <div>
+      {% if page.ref-doi %}
+      <a class="btn" href='http://dx.doi.org/{{ page.ref-doi }}'>doi: {{ page.ref-doi }}</a>
+      {% endif %}
+      {% if page.ref-pmcid %}
+      <a class="btn" href='https://www.ncbi.nlm.nih.gov/pmc/articles/{{ page.ref-pmcid }}'>pmcid: {{ page.ref-pmcid }}</a>
+      {% elsif page.ref-pmid %}
+      <div><a class="btn" href='https://www.ncbi.nlm.nih.gov/pubmed/{{ page.ref-pmid }}'>pmid: {{ page.ref-pmid }}</a>
+      {% endif %}
+    </div>
+    </p>
+
+  </header>
+{% endunless %}
+<section class="page__content" itemprop="text">
+    {{ content }}
+
+    {% if page.ref-pmcid %}
+    <div><a class="btn" href='https://www.ncbi.nlm.nih.gov/pmc/articles/{{ page.ref-pmcid }}'>Full text on PubMed Central</a></div>
+    {% elsif page.ref-pmid %}
+    <div><a class="btn" href='https://www.ncbi.nlm.nih.gov/pubmed/{{ page.ref-pmid }}'>View article on PubMed</a></div>
+    {% elsif page.ref-url %}
+    <div><a class="btn" href='{{ page.ref-url }}'>View online on {{ page.ref-url }}</a>
+    {% endif %}
+
+</section>
+<footer class="page__meta">
+
+    {% if site.data.ui-text[site.locale].meta_label %}
+      <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
+    {% endif %}
+  <!---  {% include page__taxonomy.html %} -->
+  </footer>
+
+  {% if page.share %}{% include social-share.html %}{% endif %}
+
+  </div>
+
+  </article>
+
+  </div>
+
+<!--  <h3>Related Research</h3>
+
+<ul class="post-list">
+  {% for category in page.categories %}
+  <li>{{ category }}</li>
+  {% endfor %}
+</ul> -->

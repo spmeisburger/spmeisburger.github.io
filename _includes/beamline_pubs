@@ -1,0 +1,6 @@
+{% assign n = site.articles | where_exp:"item","item.beamlines contains include.beamline" | size %}
+{% case n %}
+  {% when 1 %} [1 article](/publications-by-beamline/#{{ include.beamline | slugify }})
+  {% when 0 %} (none yet)
+  {% else %} [{{n}} articles](/publications-by-beamline/#{{ include.beamline | slugify }})
+{% endcase %}

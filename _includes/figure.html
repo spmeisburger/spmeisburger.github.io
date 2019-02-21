@@ -1,0 +1,13 @@
+<figure>
+  <div class="archive__item-teaser">
+  <img src="{{ include.figure }}" alt="{{ include.alt | truncatewords: 6 }}">
+  {% if include.caption %}
+  <figcaption><b>Figure 1.</b> {{ include.caption }}
+    {% if include.reference %}
+      {% capture cite %} {% include citation.html name = include.reference %} {% endcapture %}
+      ({{ cite | strip }})
+    {% endif %}
+  </figcaption>
+  {% endif %}
+</div>
+</figure>
