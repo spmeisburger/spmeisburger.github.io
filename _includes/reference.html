@@ -1,0 +1,28 @@
+<div class="{{ include.type | default: "list" }}__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+
+{% if include.article.collection == 'articles' %}
+<a style="color:black;" href="{{ include.article.url }}">
+{{ include.article.ref-authors | replace: 'Meisburger SP', '<b>Meisburger SP</b>' | replace: '*','<sup>&dagger;</sup>'}}. ({{ include.article.ref-year }}). {{ include.article.ref-title }}. <i>{{ include.article.ref-journal }}</i>
+{{include.article.ref-volume}}: {{include.article.ref-pages}}.</a>
+{% if include.article.ref-doi %}
+<a href='http://dx.doi.org/{{ include.article.ref-doi }}'><i class="fa fa-external-link"></i></a>
+{% endif %}
+{% if include.article.ref-pmcid %}
+<a href='https://www.ncbi.nlm.nih.gov/pmc/articles/{{ include.article.ref-pmcid }}'><i class="fa fa-file-text-o"></i></a>
+{% elsif include.article.ref-pmid %}
+<a href='https://www.ncbi.nlm.nih.gov/pubmed/{{ include.article.ref-pmid }}'><i class="fa fa-file-text-o"></i></a>
+{% endif %}
+
+{% else %}
+<strong><a href="{{ include.article.url }}">{{ include.article.ref-title }}</a></strong>
+<div class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i></strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ include.article.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></div>
+<div>{{ include.article.ref-venue }}</div>
+{% endif %}
+
+{% if include.article.ref-footnote %}
+<small>{{ include.article.ref-footnote | replace: '*', '<sup>&dagger;</sup>'}}</small>
+{% endif %}
+
+</article>
+</div>

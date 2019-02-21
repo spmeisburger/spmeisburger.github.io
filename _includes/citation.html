@@ -1,0 +1,4 @@
+{% assign articles = site.articles | where: "slug",include.name %}
+{% for article in articles %}
+<a href="{{ article.url }}">{{ article.title }}</a>
+{% endfor %}

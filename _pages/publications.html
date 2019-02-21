@@ -1,0 +1,24 @@
+---
+layout: archive
+title: "Publications"
+permalink: /publications/
+author_profile: true
+---
+
+{% include base_path %}
+
+{% if author.googlescholar %}
+  You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
+ {% endif %}
+
+<!--organize by publication year-->
+{% assign items_grouped = site.articles | group_by: 'ref-year' | sort: 'name' | reverse %}
+{% for group in items_grouped %}
+<h2 id="{{ group.name | slugify }}" class="archive__subtitle">{{group.name}}</h2>
+<ul>
+{% assign sorted = group.items | sort: 'date' | reverse %}
+{% for article in sorted %}
+<li>{% include reference.html article=article %}</li>
+{% endfor %}
+</ul>
+{% endfor %}
