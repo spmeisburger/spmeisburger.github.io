@@ -1,6 +1,6 @@
 ---
 title: "Meisburger, Xu, and Ando, IUCrJ 2021"
-date: 2021-02-06
+date: 2021-03-06
 categories:
   - saxs
   - chromatography-coupled-saxs
@@ -11,7 +11,7 @@ ref-title: "REGALS: a general method to deconvolve X-ray scattering data from ev
 ref-authors: "Meisburger SP*, Xu D*, Ando N"
 ref-journal: "IUCrJ"
 ref-volume: "8(2)"
-ref-pages: "????-????"
+ref-pages: "225-237"
 ref-year: 2021
 ref-doi: 10.1107/S2052252521000555
 ref-footnote: "*equal contribution"
