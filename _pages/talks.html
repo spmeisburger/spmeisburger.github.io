@@ -8,8 +8,11 @@ author_profile: true
 {% include base_path %}
 {% include group-by-array collection=site.talks field="categories" %}
 
-{% for category in group_names reversed %}
-  {% assign posts = group_items[forloop.index0] %}
+{% assign group_names_sorted = group_names | reverse %}
+{% assign group_items_sorted = group_items | reverse %}
+
+{% for category in group_names_sorted %}
+  {% assign posts = group_items_sorted[forloop.index0] %}
   <h2 id="{{ category | slugify }}" class="archive__subtitle">{{ category }}</h2>
   <ul>
   {% assign sorted = posts | sort: 'date' | reverse %}
