@@ -7,12 +7,17 @@ author_profile: true
 
 {% include base_path %}
 
-{% assign talks = site.talks | where: "categories", "Talks" %}
+{% assign my_categories = "Talks, Posters" | split: ", " %}
 
-  <h2 id="{{ category | slugify }}" class="archive__subtitle">Talks</h2>
+{% for cat in my_categories %}
+
+{% assign entries = site.talks | where: "categories", cat %}
+
+  <h2 id="{{ category | slugify }}" class="archive__subtitle">{{ cat }}</h2>
   <ul>
-  {% assign sorted = talks | sort: 'date' | reverse %}
+  {% assign sorted = entries | sort: 'date' | reverse %}
   {% for post in sorted %}
     <li>{% include reference.html article=post %}</li>
   {% endfor %}
 </ul>
+{% endfor %}
