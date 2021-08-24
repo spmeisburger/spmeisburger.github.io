@@ -9,7 +9,7 @@ author_profile: true
 
 {% assign talks = site.talks | where: "categories", "Talks" %}
 
-  <h2 id="{{ category | slugify }}" class="archive__subtitle">{{ Talks }}</h2>
+  <h2 id="{{ category | slugify }}" class="archive__subtitle">Talks</h2>
   <ul>
   {% assign sorted = talks | sort: 'date' | reverse %}
   {% for post in sorted %}
