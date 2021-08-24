@@ -11,5 +11,3 @@ ref-authors: "Meisburger SP"
 ref-venue: "Harvard-Hamburg Crystallographic Curiosities Seminar Series (Remote)"
 ref-year: 2021
 ---
-
-## Abstract

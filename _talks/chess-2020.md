@@ -11,5 +11,3 @@ ref-authors: "Meisburger SP, Ando N"
 ref-venue: "CHESS Commons Meeting"
 ref-year: 2020
 ---
-
-## Abstract

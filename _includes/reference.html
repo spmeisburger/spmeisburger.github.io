@@ -15,9 +15,8 @@
 {% endif %}
 
 {% else %}
-<strong><a href="{{ include.article.url }}">{{ include.article.ref-title }}</a></strong>
-<div class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i></strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ include.article.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></div>
-<div>{{ include.article.ref-venue }}</div>
+<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i></strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ include.article.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time> - <a href="{{ include.article.url }}">{{ include.article.ref-venue }}</a>
+
 {% endif %}
 
 {% if include.article.ref-footnote %}

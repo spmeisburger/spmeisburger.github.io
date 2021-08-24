@@ -12,5 +12,3 @@ ref-venue: "SBGrid Weekly Webinar Series (Remote)"
 ref-year: 2021
 ref-url: https://www.youtube.com/watch?v=AO2kru097Wc
 ---
-
-## Abstract
