@@ -2,7 +2,7 @@
 title: "ASBMB 2017"
 date: 2017-04-24
 categories:
-  - Invited Talks
+  - Talks
 
 figure:
 

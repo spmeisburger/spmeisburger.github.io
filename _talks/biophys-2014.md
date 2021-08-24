@@ -2,7 +2,7 @@
 title: "Biophys 2014"
 date: 2014-02-18
 categories:
-  - Contributed Talks
+  - Talks
 
 figure:
 

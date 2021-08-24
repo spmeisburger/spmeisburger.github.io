@@ -2,7 +2,7 @@
 title: "CHESS-U 2016"
 date: 2016-04-24
 categories:
-  - Invited Talks
+  - Talks
 
 figure:
 
